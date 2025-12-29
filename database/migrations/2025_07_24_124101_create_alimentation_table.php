@@ -10,16 +10,14 @@ return new class extends Migration
     {
         Schema::create('alimentations', function (Blueprint $table) {
             $table->id();
-            $table->string('type'); // ex: foin, maïs, aliment concentré
-            $table->text('description')->nullable();
-            $table->integer('quantite'); // en kg ou litres
-            $table->date('date_alimentation');
-            $table->unsignedBigInteger('animal_id')->nullable(); // lien avec un animal
+            // C'est ici que l'erreur doit être : vérifie bien les parenthèses et le point-virgule à la fin
+            $table->foreignId('animal_id')->nullable()->constrained()->onDelete('set null');
+            $table->string('type_aliment');
+            $table->integer('quantite');
+            $table->date('date_distribution');
             $table->timestamps();
-
-            // Clé étrangère correcte
-           $table->foreignId('animal_id')->nullable()->constrained()->onDelete('set null');
-    }
+        }); // Vérifie bien qu'il y a ce ");" ici
+    
 
     public function down(): void
     {
