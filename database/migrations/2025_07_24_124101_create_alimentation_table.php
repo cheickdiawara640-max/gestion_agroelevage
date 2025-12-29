@@ -18,8 +18,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Clé étrangère correcte
-            $table->foreign('animal_id')->references('id')->on('animals')->onDelete('set null');
-        });
+           $table->foreignId('animal_id')->nullable()->constrained()->onDelete('set null');
     }
 
     public function down(): void
