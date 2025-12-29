@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->string('periode_semis');
             $table->string('periode_recolte');
 
-            // 🔁 Relation vers une parcelle
-            $table->foreignId('parcelle_id')->nullable()->constrained('parcelles')->onDelete('set null');
+            // 1. On crée la colonne SANS la contrainte constrained()
+            $table->unsignedBigInteger('parcelle_id')->nullable();
 
             $table->timestamps();
         });
