@@ -12,11 +12,7 @@ class UserController extends Controller
     /**
      * Appliquer le middleware admin à toutes les méthodes
      */
-    public function __construct()
-    {
-        // On s'assure que seul un admin peut accéder à ces fonctions
-        $this->middleware('admin');
-    }
+  
 
     /**
      * Affiche la liste des utilisateurs.
