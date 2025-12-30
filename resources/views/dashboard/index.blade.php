@@ -94,7 +94,7 @@
             
             <div class="card shadow-sm border-0 rounded-4 p-3 bg-white">
                 <h6 class="text-muted small fw-bold text-uppercase mb-3">📦 Alertes Stocks Critique</h6>
-                @forelse($stocksCritiques->take(4) as $stock)
+                @forelse(array_slice($stocksCritiques, 0, 4) as $stock)
                     <div class="d-flex justify-content-between border-bottom py-2 small">
                         <span>{{ $stock->nom }}</span>
                         <span class="text-danger fw-bold">{{ $stock->quantite }} restant</span>
